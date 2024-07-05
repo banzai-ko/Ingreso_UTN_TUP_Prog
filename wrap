@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -i ~/.ssh/banzai/banzai-ko $1 $2
