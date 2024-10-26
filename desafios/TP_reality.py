@@ -1,5 +1,5 @@
-# # Nombre: Genaro
-# # Apellido: Pennone
+# # Nombre: G
+# # Apellido: P
 
 # # Enunciado:
 # De los 3 Jugadores de un Reality Show, se registra:
@@ -11,68 +11,44 @@
 # d. total de votos emitidos.
 # Todos los datos se ingresan mediante input()
 
-
-
-def ingresar_edad():
-    edad = int(input("Ingrese Edad (mayor a 25): "))
-    while (edad <= 25 or not edad.isnumeric(edad)):
-        print("La edad debe ser mayor a 25. Por favor, reingrese")
-        edad = int(input("Ingrese Edad (mayor a 25): "))
-    return edad
-
-def ingresar_votos():
-    votos = int(input("Ingrese Puntos: "))
-    while votos < 0 or not votos.isnumeric(votos):
-        print("El puntaje no puede ser menor a 0. y solo numeros Reingrese.")
-        votos = int(input("Ingrese Puntos: "))
-    return votos
-
-contador = 0
-players = []
-
-while contador < 3:
-    print(f"Jugador {contador + 1}:")
-    
-    name = input(f"Ingrese Nombre del jugador {contador + 1}: ")
-    age = ingresar_edad()  
-    points = ingresar_votos()
-    
-    player_info = {"Nombre": name, "Edad": age, "Puntos": points}
-    players.append(player_info)
-    
-    contador += 1
-
+cont = 0
+edad_total = 0
+min_votos = 2 ** 16
+max_votos = 0
 total_votos = 0
-sum_edades = 0
-indice_mas_votos = 0
-indice_menos_votos = 0
+jugadores = 3
+edad_minima = 25
+while cont < jugadores:
+    print(f"JUGADOR {cont + 1}:")
+    nombre = input(f"Ingrese Nombre del jugador {cont + 1}: ")
+    edad = int(input(f"Ingresa Edad del jugador {cont + 1}: "))
+    while edad <= edad_minima:
+        edad = int(input(f"Ingresa Edad del jugador {cont + 1}: "))
 
-for i in range(len(players)):
-    total_votos += players[i]["Puntos"]
-    sum_edades += players[i]["Edad"]
-    
-    if players[i]["Puntos"] > players[indice_mas_votos]["Puntos"]:
-        indice_mas_votos = i
-    if players[i]["Puntos"] < players[indice_menos_votos]["Puntos"]:
-        indice_menos_votos = i
+    edad_total += edad
 
-promedio_edades = sum_edades / len(players)
+    votos = int(input(f"Ingresa votos del jugador {cont + 1}: "))
+    while votos < 0:
+        votos = int(input(f"Ingresa votos del jugador {cont + 1}: "))
 
-print("\nResultados:")
-tide = False
-if (players[1]["Puntos"] == players[2]["Puntos"] or
-    players[1]["Puntos"] == players[3]["Puntos"] or
-    players[2]["Puntos"] == players[3]["Puntos"]):
-    tide = True
-if tide:
-    print("Hay empate de puntos")
-    for i in range(len(players)):
-        print(f"Nombre:  {players[i]["Nombre"]}")
-        print(f"Puntos:  {players[i]["Puntos"]}")
+    total_votos += votos
 
-else:
-    print(f"Candidato con más votos: {players[indice_mas_votos]['Nombre']}")
-    print(f"Candidato con menos votos: {players[indice_menos_votos]['Nombre']}, Edad: {players[indice_menos_votos]['Edad']}")
+    if votos > max_votos:
+        max_votos = votos
+        mas_votado = nombre
 
-print(f"Promedio de edades de los candidatos: {promedio_edades:.2}")
+    if votos < min_votos:
+        min_votos = votos
+        menos_votado = nombre
+        menos_votado_edad = edad
+
+    cont += 1
+
+edad_promedio = edad_total / cont
+
+print("\nRESULTADOS:")
+print(f"Candidato con más votos: {mas_votado}")
+print(f"Candidato con menos votos: {menos_votado} edad: {menos_votado_edad}")
+# Ajustamos el formato del promedio
+print(f"Promedio de edades de los candidatos: {edad_promedio:.2f}")
 print(f"Total de votos emitidos: {total_votos}")

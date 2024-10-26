@@ -1,7 +1,7 @@
 """
 
-nombre: Genaro
-apellido: Pennone
+nombre: G
+apellido: P
 ---
 Ejercicio: Ejercicio-2-A-03
 ---
@@ -15,11 +15,11 @@ age = int(input("Ingrese Edad: "))
 if age < 0:
   print("Edad Invalida")
 else:
-  if age > 0 and age < 10:
+  if age < 10:
     print("Es Niño")
-  elif age >= 10 and age <= 13:
+  elif  age  < 13:
     print("Es Pre-Adolescente")
-  elif age >= 13 and age <= 17:
+  elif age  < 17:
     print("Adolescente")
 
   else :

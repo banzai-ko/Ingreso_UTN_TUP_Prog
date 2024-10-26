@@ -1,5 +1,5 @@
-# Nombre: Genaro
-# Apellido: Pennone
+# Nombre: G
+# Apellido: P
 
 # Enunciado:
 # Para el departamento de facturación:

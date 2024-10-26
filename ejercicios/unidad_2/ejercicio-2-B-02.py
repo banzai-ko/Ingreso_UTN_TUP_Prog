@@ -1,7 +1,7 @@
 """
 
-nombre: Genaro
-apellido: Pennone
+nombre: G
+apellido: P
 ---
 Ejercicio: Ejercicio-2-A-02
 ---

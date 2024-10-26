@@ -1,6 +1,6 @@
 """
-nombre: Genaro
-apellido: Pennone
+nombre: G
+apellido: P
 ---
 Ejercicio: Ejercicio_01
 ---
